@@ -1,14 +1,20 @@
-run-name: Workflow 1 is running
-name: Workflow 1
+name: Reusable workflow example
+
 on:
   workflow_call:
+    inputs:
+      config-path:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
 
 jobs:
-  job1:
+  triage:
     runs-on: ubuntu-latest
     steps:
-      - name: Check branch
-        run: echo "echo ${GITHUB_REF##*/}"
-      - uses: actions/checkout@v3
-        with:
-            fetch-depth: 0
+    - uses: actions/labeler@v4
+      with:
+        repo-token: ${{ secrets.token }}
+        configuration-path: ${{ inputs.config-path }}
