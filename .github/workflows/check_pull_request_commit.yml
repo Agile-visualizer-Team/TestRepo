@@ -21,7 +21,7 @@ jobs:
       - name: setting enviroment variables
         run : ./commit_hook.pl $GITHUB_SHA >> $GITHUB_ENV
       - if: ${{ env.pull_request_commit == 'true' }}
-        uses: ./.github/workflows/workflow_2.yml@develop
+        uses: .github/workflows/workflow_2.yml@develop
         with:
           title: ${{ env.title }}
           body: ${{ env.body }}
