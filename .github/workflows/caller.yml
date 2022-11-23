@@ -11,5 +11,6 @@ jobs:
     uses: Agile-visualizer-Team/TestRepo/.github/workflows/workflow-B.yml@main
     with:
       config-path: .github/labeler.yml
+      test: "CIAO"
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
