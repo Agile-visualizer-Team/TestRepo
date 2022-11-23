@@ -4,9 +4,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  call-workflow:
-    uses: octo-org/example-repo/.github/workflows/workflow-A.yml@v1
-
   call-workflow-passing-data:
     permissions:
       contents: read
