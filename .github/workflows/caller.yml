@@ -5,10 +5,9 @@ on:
 
 jobs:
   call-workflow-passing-data:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: Agile-visualizer-Team/TestRepo/.github/workflows/workflow-B.yml@develop
-        with:
-          config-path: .github/labeler.yml
-          test: "CIAO"
-          token: ${{ secrets.GITHUB_TOKEN }}
+      uses: Agile-visualizer-Team/TestRepo/.github/workflows/workflow-B.yml@develop
+      with:
+        config-path: .github/labeler.yml
+        test: "CIAO"
+      secrets:
+        token: ${{ secrets.GITHUB_TOKEN }}
