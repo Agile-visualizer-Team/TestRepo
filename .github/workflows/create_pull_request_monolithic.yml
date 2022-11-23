@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check branch
-        run: echo "echo ${GITHUB_REF##*/}"
+        run: echo "${GITHUB_REF##*/}"
       - uses: actions/checkout@v3
         with:
             fetch-depth: 0
@@ -30,11 +30,9 @@ jobs:
         with:
           python-version: '3.9'
       - if: ${{ env.pull_request_commit == 'true' }}
-        run: sudo apt install python3-pip
-      - if: ${{ env.pull_request_commit == 'true' }}
-        run: pip3 install -r requirements.txt
-      - if: ${{ env.pull_request_commit == 'true' }}
-        run: pytest randomness/tests/
+        run: | 
+          sudo apt install python3-pip
+          pytest randomness/tests/
       - if: ${{ env.pull_request_commit == 'true' }}
         name: create pull_request
         uses: devops-infra/action-pull-request@v0.5.3
