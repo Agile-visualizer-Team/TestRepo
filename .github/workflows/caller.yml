@@ -9,4 +9,5 @@ jobs:
     with:
       config-path: .github/labeler.yml
       test: "CIAO"
-    secrets: inherit
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
