@@ -1,6 +1,11 @@
 run-name: Checking if ${{ github.actor }} wants to create a pull_request :)
 name: Check for pull request commit
 on:
+  push:
+   branches :
+    - '*'
+    - '!master'
+    - '!main'
   workflow_dispatch:
 jobs:
   check_pull_request_commit:
