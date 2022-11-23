@@ -32,6 +32,7 @@ jobs:
       - if: ${{ env.pull_request_commit == 'true' }}
         run: | 
           sudo apt install python3-pip
+          sudo pip3 install pytest
           pytest randomness/tests/
       - if: ${{ env.pull_request_commit == 'true' }}
         name: create pull_request
