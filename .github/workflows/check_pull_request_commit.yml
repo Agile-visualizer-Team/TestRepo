@@ -11,3 +11,19 @@ jobs:
       - uses: actions/checkout@v3
         with:
             fetch-depth: 0
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+            perl-version: '5.34'
+      - name: check commit
+        run : git show $GITHUB_SHA
+      - name: run script
+        run : ./commit_hook.pl $GITHUB_SHA
+      - name: setting enviroment variables
+        run : ./commit_hook.pl $GITHUB_SHA >> $GITHUB_ENV
+      - if: ${{ env.pull_request_commit == 'true' }}
+        uses: ./.github/workflows/workflow_2.yml@develop
+        with:
+          title: ${{ env.title }}
+          body: ${{ env.body }}
+          reviewer: ${{ env.reviewer }}
+          secrets: inherit
