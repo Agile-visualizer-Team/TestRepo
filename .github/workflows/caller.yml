@@ -5,12 +5,8 @@ on:
 
 jobs:
   call-workflow-passing-data:
-    # permissions:
-    #   contents: read
-    #   pull-requests: write
     uses: Agile-visualizer-Team/TestRepo/.github/workflows/workflow-B.yml@develop
     with:
       config-path: .github/labeler.yml
       test: "CIAO"
-    secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
+    secrets: inherit
