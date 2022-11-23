@@ -1,5 +1,5 @@
 run-name: Checking if ${{ github.actor }} wants to create a pull_request :)
-name: Checking for pull request commit
+name: Check for pull request commit
 on:
   workflow_dispatch:
 jobs:
