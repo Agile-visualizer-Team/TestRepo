@@ -1,9 +1,14 @@
 run-name: Checking if ${{ github.actor }} wants to create a pull_request :)
 name: Check for pull request commit
 on:
+  # push:
+  #  branches :
+  #   - '*'
+  #   - '!master'
+  #   - '!main'
   workflow_dispatch:
 jobs:
-  create_pull_request:
+  check_pull_request_commit:
     runs-on: ubuntu-latest
     steps:
       - name: Check branch
@@ -21,7 +26,7 @@ jobs:
       - name: setting enviroment variables
         run : ./commit_hook.pl $GITHUB_SHA >> $GITHUB_ENV
       - if: ${{ env.pull_request_commit == 'true' }}
-        uses: ./.github/workflows/workflow_2.yml@develop
+        uses: Agile-visualizer-Team/TestRepo/.github/workflows/workflow_2.yml@develop
         with:
           title: ${{ env.title }}
           body: ${{ env.body }}
