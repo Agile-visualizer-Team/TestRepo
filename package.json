@@ -11,5 +11,8 @@
     "url": "npm install"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "publishConfig": {
+    "@instafiore:registry": "https://npm.pkg.github.com"
+  }
 }
