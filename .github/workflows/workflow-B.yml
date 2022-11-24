@@ -6,6 +6,9 @@ on:
       config-path:
         required: true
         type: string
+      test:
+        required: true
+        type: string
     secrets:
       token:
         required: true
@@ -14,7 +17,11 @@ jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
+    - name: Check branch
+      run: echo "echo ${GITHUB_REF##*/}"
     - uses: actions/labeler@v4
       with:
         repo-token: ${{ secrets.token }}
         configuration-path: ${{ inputs.config-path }}
+    - run: echo "${{ inputs.test }}"
+    
