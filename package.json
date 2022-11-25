@@ -11,8 +11,5 @@
     "url": "npm install"
   },
   "author": "",
-  "license": "ISC",
-  "publishConfig": {
-    "@Agile-visualizer-Team:registry": "https://npm.pkg.github.com"
-  }
+  "license": "ISC"
 }
