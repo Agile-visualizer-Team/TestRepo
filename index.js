@@ -1,6 +1,6 @@
 
 dio = function(name="instafiore") { 
-    console.log("Hello, World!");
+    console.log("Hello "+name+" !");
 }
 
 module.exports = {
