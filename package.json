@@ -13,6 +13,6 @@
   "author": "",
   "license": "ISC",
   "publishConfig": {
-    "@instafiore:registry": "https://npm.pkg.github.com"
+    "@Agile-visualizer-Team:registry": "https://npm.pkg.github.com"
   }
 }
